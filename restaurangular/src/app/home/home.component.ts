@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  paysage = '../assets/images/landscape-4205109_1280.jpg';
 
   constructor() { }
 
