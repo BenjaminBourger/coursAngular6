@@ -23,7 +23,8 @@ import { MatToolbarModule,
          MatFormFieldModule,
          MatDatepickerModule,
          MatNativeDateModule,
-         MAT_DATE_LOCALE} from '@angular/material';
+         MAT_DATE_LOCALE,
+         MatSelectModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { CarteComponent } from './carte/carte.component';
 import { ReserveComponent } from './reserve/reserve.component';
@@ -66,7 +67,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
