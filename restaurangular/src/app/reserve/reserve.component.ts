@@ -26,4 +26,8 @@ export class ReserveComponent implements OnInit {
       people: 1
     });
   }
+
+  finalizeReservation(formValue) {
+    console.log(formValue);
+  }
 }

@@ -24,10 +24,20 @@
 
 {{ reservationForm.value | json }}
 
-<form #f="ngForm">
+<form #f="ngForm" (submit)="finalizeReservation(f.value)">
   <mat-form-field>
     <input matInput type="text" name="firstName" [(ngModel)]="client.firstName" placeholder="Prénom">
   </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" name="lastName" [(ngModel)]="client.lastName" placeholder="Nom">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" name="email" [(ngModel)]="client.email" placeholder="Email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" name="tel" [(ngModel)]="client.tel" placeholder="Téléphone">
+  </mat-form-field>
+  <button mat-button type="submit">Réserver</button>
 </form>
 
 {{ f.controls.firstName?.value }}
