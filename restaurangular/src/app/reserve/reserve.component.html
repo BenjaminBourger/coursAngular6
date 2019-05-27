@@ -1,11 +1,9 @@
 <form [formGroup]="reservationForm">
-  <input type="date" formControlName="date">
-  <select formControlName="time">
-    <option *ngFor="let to of timeOptions">{{ to }}</option>
-  </select>
-  <select formControlName="people">*
-    <option *ngFor="let po of peopleOptions">{{ po }}</option>
-  </select>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choisir une date" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" [startAt]="date"></mat-datepicker>
+      </mat-form-field>
 </form>
 
 {{ reservationForm.value | json }}
