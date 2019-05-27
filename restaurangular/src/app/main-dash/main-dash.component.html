@@ -15,10 +15,18 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+        <mat-card-content class="dashboard-card-content" *ngif="card.id === 'brg'">
+          <div>Contenu propre aux burgers</div>
+        </mat-card-content>
+        <mat-card-content class="dashboard-card-content" *ngif="card.id === 'glt'">
+          <div>Contenu propre aux galettes</div>
+        </mat-card-content>
+        <mat-card-content class="dashboard-card-content" *ngif="card.id === 'pzz'">
+          <div>Contenu propre aux pizzas</div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+
+<div *ngFor="let burg of burgers">{{ burg.title }}</div>

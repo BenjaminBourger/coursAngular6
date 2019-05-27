@@ -23,10 +23,10 @@ export class MainDashComponent implements OnInit {
       }
 
       return [
-        { title: 'A la carte', cols: 2, rows: 1 },
-          { title: 'Burgers', cols: 2, rows: 1 },
-          { title: 'Galettes/crêpes', cols: 2, rows: 1 },
-          { title: 'Pizza', cols: 2, rows: 1 }
+        { title: 'A la carte', cols: 2, rows: 1},
+          { title: 'Burgers', cols: 2, rows: 1, id: 'brg' },
+          { title: 'Galettes/crêpes', cols: 2, rows: 1, id: 'glt' },
+          { title: 'Pizza', cols: 2, rows: 1, id: 'pzz' }
       ];
     })
   );
