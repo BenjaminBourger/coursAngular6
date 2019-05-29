@@ -25,7 +25,6 @@
   </form>
 </div>
 
-{{ reservationForm.value | json }}
 <div *ngIf="isScheduleOk">
   <form #f="ngForm" (submit)="finalizeReservation(f.value)">
     <mat-form-field>

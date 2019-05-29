@@ -32,6 +32,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MainDashComponent } from './main-dash/main-dash.component';
 import { DishTableComponent } from './dish-table/dish-table.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MatDividerModule } from '@angular/material/divider';
     ReserveComponent,
     ContactComponent,
     MainDashComponent,
-    DishTableComponent
+    DishTableComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
