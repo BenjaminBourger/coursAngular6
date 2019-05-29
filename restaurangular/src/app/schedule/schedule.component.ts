@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { debounceTime, map } from 'rxjs/operators';
+import { debounceTime, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-schedule',
@@ -19,10 +19,17 @@ export class ScheduleComponent implements OnInit {
   ngOnInit() {
     this.searchTerms$
     .pipe(
-      debounceTime(3000),
-      map(x => x.toUpperCase())
+      map(x => x.toUpperCase()),
+      tap(x => console.log('Après map uppercase', x)),
+      map(uppercased => this.reverse(uppercased)),
+      tap(x => console.log('Apres reverse', x)),
+      debounceTime(1000)
     )
     .subscribe(data => console.log(data));
+  }
+
+  reverse(word) {
+    return word.split('').reverse().join('');
   }
 
 }
