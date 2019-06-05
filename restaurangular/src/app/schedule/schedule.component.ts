@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime, map, tap } from 'rxjs/operators';
+import { ScheduleService } from '../services/schedule.service';
 
 @Component({
   selector: 'app-schedule',
@@ -10,22 +11,20 @@ import { debounceTime, map, tap } from 'rxjs/operators';
 })
 export class ScheduleComponent implements OnInit {
   searchTerm = new FormControl();
+  result = null;
 
   // Le dollar par convention pour indiquer que cette variable est un Observable
   searchTerms$: Observable<string> = this.searchTerm.valueChanges;
 
-  constructor() { }
+  constructor(private scheduleService: ScheduleService) { }
 
   ngOnInit() {
     this.searchTerms$
     .pipe(
-      map(x => x.toUpperCase()),
-      tap(x => console.log('Après map uppercase', x)),
-      map(uppercased => this.reverse(uppercased)),
-      tap(x => console.log('Apres reverse', x)),
-      debounceTime(1000)
+      debounceTime(1000),
+      map(word => this.scheduleService.search(word))
     )
-    .subscribe(data => console.log(data));
+    .subscribe(data => this.result = data);
   }
 
   reverse(word) {
