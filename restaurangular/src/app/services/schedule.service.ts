@@ -10,6 +10,6 @@ export class ScheduleService {
   constructor(private httpClient: HttpClient) { }
 
   search(term): Observable<object> {
-    return this.httpClient.get('assets/schedules.json')
+    return this.httpClient.get('assets/schedules.json');
   }
 }

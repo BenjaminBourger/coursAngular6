@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { debounceTime, map, tap } from 'rxjs/operators';
+import { debounceTime, map, tap, switchMap } from 'rxjs/operators';
 import { ScheduleService } from '../services/schedule.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class ScheduleComponent implements OnInit {
     this.searchTerms$
     .pipe(
       debounceTime(1000),
-      map(word => this.scheduleService.search(word))
+      switchMap(word => this.scheduleService.search(word))
     )
     .subscribe(data => this.result = data);
   }
